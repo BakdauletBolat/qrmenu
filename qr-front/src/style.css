@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+}
+
+.container {
+  padding: 0px 16px;
+}
+
+.food-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.gradient-black {
+  background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.21194415266106448) 0%, rgba(0,0,0,1) 100%);
+}
+
+.shantell-sans-regular {
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BNCE" 0,
+    "INFM" 0,
+    "SPAC" 0.7;
+}

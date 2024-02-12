@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    container_name: db
+    image: postgres:15.1
+    volumes:
+      - ./dev/db/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=qr
+      - POSTGRES_USER=qrmaster
+      - POSTGRES_PASSWORD=baguvix123FFF
+    ports:
+      - "5432:5432"
+  web:
+    container_name: web
+    build: .
+    command: "gunicorn --bind 0.0.0.0:8000 qrmenu.wsgi:application"
+    expose:
+      - 8000
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
