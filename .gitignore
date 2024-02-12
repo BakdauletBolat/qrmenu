@@ -116,3 +116,5 @@ node_modules/
 env
 venv
 .venv
+dev
+.dev
