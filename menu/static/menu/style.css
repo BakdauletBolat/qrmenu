@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1,
+h2,
+h3,
+div,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 0px 15px;
+}
+
+@keyframes header-animation {
+    from {
+        height: 300px;
+    }
+
+    to {
+        height: 60px;
+    }
+}
+
+@keyframes subtitle-animation {
+    0% {
+        opacity: 100%;
+        height: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+        height: 0px;
+        margin: 0px;
+    }
+}
+
+
+@keyframes title-animation {
+    0% {}
+
+    100% {
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
+
+
+@keyframes content-animation {
+
+    to {
+        padding-bottom: 0px;
+    }
+}
+
+
+@keyframes image-animation {
+
+    to {
+        background: #FC8A06;
+    }
+}
+
+@keyframes categories-animation {
+
+    to {
+        top: 60px;
+    }
+}
+
+
+.header {
+    height: 200px;
+    display: flex;
+    width: 100%;
+    background-repeat: no-repeat;
+    align-items: flex-end;
+    color: white;
+    position: fixed;
+    object-fit: cover;
+    top: 0;
+    z-index: 1;
+}
+
+.header__content {
+    padding-bottom: 30px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 2;
+    flex-direction: column;
+}
+
+.header__content h1 {
+    font-size: 36px;
+    animation: title-animation linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0px 200px;
+}
+
+.header__content h3 {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    animation: subtitle-animation linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0px 200px;
+}
+
+.header__image__black {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    animation: image-animation linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0px 200px;
+}
+
+.header__image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    display: block;
+}
+
+.categories__container {
+    top: 300px;
+    position: fixed;
+    width: 100%;
+    animation: categories-animation linear forwards;
+    animation-timeline: scroll();
+    padding: 10px 15px;
+    background-color: white;
+    animation-range: 0px 200px;
+}
+
+
+
+.categories {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    align-items: center;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.categories__item {
+    background-color: #e9e9e9;
+    padding: 10px 14px;
+    border-radius: 2px;
+    text-wrap: nowrap;
+    cursor: pointer;
+}
+
+.categories__item:hover {
+    background-color: #cfcfcf;
+}
+
+.categories__item-active {
+    background-color: #FC8A06;
+    color: white;
+}
+
+.categories__item-active:hover {
+    background-color: #e57a00;
+    color: white;
+}
+
+
+
+/* .food__item{
+} */
+
+.foods_category {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.food__item h3 {
+    margin-top: 20px;
+    font-family: "Neucha", cursive;
+    font-weight: 400;
+    font-size: 24px;
+    font-style: normal;
+}
+
+.food__item img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.food__item p {
+    color: rgb(78, 78, 78);
+    margin-top: 5px;
+}
+
+
+.food__item-price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.foods {
+    display: grid;
+    gap: 30px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
