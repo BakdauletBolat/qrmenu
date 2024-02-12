@@ -1,11 +1,13 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import decorators, response
 from menu.models import Category, Food, Store
 from menu.serializers import StoreSerializer
 
 
-# Create your views here.
 
+def render_main(request):
+    return HttpResponse("OK")
 
 def render_shop(request, slug: str):
 

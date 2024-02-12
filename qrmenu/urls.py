@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 from menu import views
 
 
-
 urlpatterns = [
+    path('', views.render_main),
     path('api/store/<str:slug>', views.render_api_store),
     path('admin/', admin.site.urls),
 ]
