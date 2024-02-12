@@ -22,5 +22,4 @@ COPY . /app/
 
 # Собираем статические файлы Django
 RUN python manage.py collectstatic --noinput
-RUN python manage.py migrate
 
