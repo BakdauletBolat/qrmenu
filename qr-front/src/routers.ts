@@ -4,7 +4,7 @@ const About = { template: '<div>About</div>' }
 
 const routes = [
   { path: '/', component: About },
-  { path: '/:slug', component: Home },
+  { path: '/resto/:slug', component: Home },
 ]
 
 const router = createRouter({
