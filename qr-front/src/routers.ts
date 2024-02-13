@@ -3,8 +3,8 @@ import Home from './pages/home.vue';
 const About = { template: '<div>About</div>' }
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
+  { path: '/', component: About },
+  { path: '/:slug', component: Home },
 ]
 
 const router = createRouter({

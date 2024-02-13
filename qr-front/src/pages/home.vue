@@ -72,4 +72,21 @@
 <script setup lang="ts">
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/vue";
 import { store } from "../store";
+import { Store, getStore } from "../api/main";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+
+const loadStore = async (slug:string) => {
+  const storeData: Store = (await getStore(slug)).data;
+  store.setStore(storeData);
+};
+onMounted(() => {
+  console.log(route.params);
+  const slug = route.params.slug.toString();
+  loadStore(slug);
+});
+
 </script>

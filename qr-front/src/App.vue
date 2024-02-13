@@ -57,11 +57,8 @@
   </header>
   <router-view> </router-view>
 </template>
-
 <script setup lang="ts">
-import { onMounted } from "vue";
 import { store } from "./store";
-import { Store, getStore } from "./api/main";
 import { ref, computed } from "vue";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/vue";
 import SwitherCard from "./components/swither-card.vue";
@@ -94,12 +91,5 @@ const searchData = computed(() => {
   return data;
 })
 
-const slug = "random";
-const loadStore = async () => {
-  const storeData: Store = (await getStore(slug)).data;
-  store.setStore(storeData);
-};
-onMounted(() => {
-  loadStore();
-});
+
 </script>
