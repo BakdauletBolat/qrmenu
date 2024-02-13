@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import DetailResto from './pages/detail-resto.vue';
 import Home from './pages/home.vue';
-const About = { template: '<div>About</div>' }
+
 
 const routes = [
-  { path: '/', component: About },
-  { path: '/resto/:slug', component: Home },
+  { path: '/', component: Home },
+  { path: '/resto/:slug', component: DetailResto },
 ]
 
 const router = createRouter({
