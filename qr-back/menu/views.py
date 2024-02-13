@@ -7,7 +7,7 @@ from menu.serializers import StoreSerializer
 
 
 def render_main(request):
-    return HttpResponse("OK")
+    return render(request, 'dist/index.html')
 
 def render_shop(request, slug: str):
 

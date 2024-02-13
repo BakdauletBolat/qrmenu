@@ -1,25 +1,21 @@
-# Используем базовый образ с Python
 FROM python:3.11-slim
 
-# Устанавливаем системные зависимости
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        postgresql-client \
-        libpq-dev \
-        nginx \
-    && rm -rf /var/lib/apt/lists/*
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Создаем и переходим в рабочую директорию
 WORKDIR /app
 
-# Копируем файлы зависимостей
-COPY requirements.txt /app/
+# Copy requirements.txt to install Python dependencies
+COPY ./qr-back/requirements.txt ./
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
 
-COPY . /app/
+COPY ./qr-back .
 
-# Собираем статические файлы Django
-RUN python manage.py collectstatic --noinput
+
+
+
 
