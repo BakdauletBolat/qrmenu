@@ -12,7 +12,7 @@ cp nginx.conf /etc/nginx/sites-available/easymenu2.kz.conf
 
 symlink_path="/etc/nginx/sites-enabled/easymenu2.kz.conf"
 
-f [ -e "$symlink_path" ]; then
+if [ -e "$symlink_path" ]; then
     echo "Symbolic link exists: $symlink_path"
 else
     sudo ln -s /etc/nginx/sites-available/easymenu2.kz.conf /etc/nginx/sites-enabled/easymenu2.kz.conf
