@@ -114,6 +114,8 @@ STATICFILES_DIRS = [
    BASE_DIR / 'templates/dist/static/'
 ]
 
+CSRF_TRUSTED_ORIGINS=["https://back.easymenu.kz"] 
+
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
