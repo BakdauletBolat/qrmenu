@@ -4,8 +4,8 @@ npm run build
 
 cd ..
 
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 
 
 cp nginx.conf /etc/nginx/sites-available/easymenu2.kz.conf
