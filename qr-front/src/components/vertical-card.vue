@@ -1,8 +1,8 @@
 <template>
-  <li class="relative flex items-center gap-4 rounded hover:cursor-pointer">
+  <div class="relative grid grid-cols-[120px_1fr] items-center gap-4 rounded hover:cursor-pointer">
     <img
-      class="h-[120px] w-[120px] rounded-lg object-cover"
-      :src="food.images[0].image"
+      class="h-[120px] w-full rounded-lg object-cover"
+      :src="food.images.length > 0 ? food.images[0].image : 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ='"
     />
     <div class="py-4 w-full px-1 mt-2 gap-1 flex flex-col justify-between">
       <div>
@@ -28,7 +28,7 @@
         </p>
       </div>
     </div>
-  </li>
+  </div>
 </template>
 <script setup lang="ts">
 import { Food } from "../api/main";

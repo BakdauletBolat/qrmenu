@@ -641,6 +641,10 @@ video {
   display: flex;
 }
 
+.grid{
+  display: grid;
+}
+
 .hidden{
   display: none;
 }
@@ -665,16 +669,12 @@ video {
   height: 250px;
 }
 
-.h-full{
-  height: 100%;
-}
-
-.h-\[40vh\]{
-  height: 40vh;
-}
-
 .h-\[50vh\]{
   height: 50vh;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .w-6{
@@ -695,6 +695,14 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.grid-cols-\[100px_1fr\]{
+  grid-template-columns: 100px 1fr;
+}
+
+.grid-cols-\[120px_1fr\]{
+  grid-template-columns: 120px 1fr;
 }
 
 .flex-col{
