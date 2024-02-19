@@ -123,7 +123,7 @@
             >
               <img
                 class="w-full h-[250px] rounded-lg object-cover"
-                :src="food.images[0].image"
+                :src="food.images.length > 0 ? food.images[0].image : 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ='"
               />
               <div class="py-4 px-1 mt-2 gap-6 flex justify-between">
                 <div>
