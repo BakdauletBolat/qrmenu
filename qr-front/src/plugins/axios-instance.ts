@@ -7,7 +7,10 @@ export const instance = axios.create({
 
 
   instance.interceptors.request.use(function (config) {
-    config.headers['Authorization'] = "Bearer "+localStorage.getItem('token');
+    if (localStorage.getItem('token') != null) {
+      config.headers['Authorization'] = "Bearer "+localStorage.getItem('token');
+    }
+
     return config;
   }, function (error) {
     // Do something with request error
