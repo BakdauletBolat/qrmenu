@@ -18,7 +18,7 @@
           class="whitespace-nowrap text text-lg"
           :class="[food.discount_price ? '' : 'hidden']"
         >
-          {{ food.price }} ₸
+          {{ food.discount_price }} ₸
         </p>
         <p
           class="text whitespace-nowrap text-lg"
@@ -26,12 +26,14 @@
         >
           {{ food.price }} ₸
         </p>
+        <add-to-card class="absolute top-1 right-0" :big="true" :food="food"></add-to-card>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { Food } from "../api/main";
+import addToCard from "./add-to-card.vue";
 defineProps<{
   food: Food;
 }>();

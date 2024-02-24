@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 import os
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -6,6 +7,13 @@ SECRET_KEY = 'django-insecure-hn^(+m5(fjj2u97jce86+^v$v-*tpj39v6vko^$t_0hpj-g$di
 
 
 HOSTNAME = os.environ.get('HOSTNAME', 'http://127.0.0.1')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db'
+    }
+}
 
 try:
     from .local_settings import *
@@ -30,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "corsheaders",
-    'menu'
+    "rest_framework_simplejwt",
+    "waiter",
+    "menu"
 ]
 
 MIDDLEWARE = [
@@ -120,10 +130,18 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=90)
+}
+
+AUTH_USER_MODEL = "waiter.User"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

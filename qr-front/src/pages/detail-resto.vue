@@ -30,25 +30,24 @@
   </div>
 
   <div v-else class="w-full m-auto">
-    <Dialog :open="isOpen" @close="setIsOpen">
-      <DialogPanel
-        class="fixed overflow-y-scroll p-3 pt-6 z-40 h-[100vh] top-0 bg-white w-full"
-      >
-        <DialogTitle class="container mx-auto flex gap-3"
+    <Dialog title="Поиск" v-model="isOpen" >
+        <div class="container mx-auto flex gap-3"
           ><input
             v-model="seatchText"
             class="w-full p-2.5 px-4 text-sm rounded-sm bg-slate-100 focus:outline-none"
             placeholder="Поиск"
           />
-          <button @click="setIsOpen(false)">Закрыть</button></DialogTitle
-        >
+          </div>
         <div class="container mx-auto">
           <div class="mt-5 flex flex-col gap-4">
             <SwitherCard :data="data" v-for="data in searchData"></SwitherCard>
           </div>
         </div>
-      </DialogPanel>
     </Dialog>
+    <Dialog v-model="cardStorage.isActive.value" title="Корзина">
+      <UserCard></UserCard>
+    </Dialog>
+
     <header class="w-full h-[200px]">
       <div
         class="z-10 relative text-white m-auto container flex-col justify-between h-full !py-5 flex"
@@ -72,6 +71,9 @@
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
               />
             </svg>
+          </button>
+          <button @click="cardStorage.isActive.value = true" class="p-3 hover:bg-white rounded-xl hover:text-black">
+            <ShoppingCartIcon class="w-6 h-6"></ShoppingCartIcon>
           </button>
         </div>
         <div>
@@ -116,46 +118,7 @@
         >
           <div v-if="!category.foods.length">Нету блюд</div>
           <ul class="food-list gap-3">
-            <li
-              v-for="food in category.foods"
-              :key="food.name"
-              class="relative rounded hover:cursor-pointer"
-            >
-              <img
-                class="w-full h-[250px] rounded-lg object-cover"
-                :src="food.images.length > 0 ? food.images[0].image : 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ='"
-              />
-              <div class="py-4 px-1 mt-2 gap-6 flex justify-between">
-                <div>
-                  <h3
-                    class="font-medium text-xl leading-5 shantell-sans-regular text-orange-400"
-                  >
-                    {{ food.name }}
-                  </h3>
-                  <li class="mt-2 text-xs font-normal leading-4 text-gray-500">
-                    {{ food.description }}
-                  </li>
-                </div>
-                <div class="flex flex-col gap-1 items-center">
-                  <p
-                    class="whitespace-nowrap shantell-sans-regular text-lg"
-                    :class="[food.discount_price ? '' : 'hidden']"
-                  >
-                    {{ food.discount_price }} ₸
-                  </p>
-                  <p
-                    class="text whitespace-nowrap shantell-sans-regular text-lg"
-                    :class="[
-                      food.discount_price
-                        ? 'line-through text-gray-500 text-sm'
-                        : '',
-                    ]"
-                  >
-                    {{ food.price }} ₸
-                  </p>
-                </div>
-              </div>
-            </li>
+            <horizontal-card :key="food.id" :food="food" v-for="food in category.foods"></horizontal-card>
           </ul>
         </TabPanel>
       </TabPanels>
@@ -169,8 +132,17 @@ import { store } from "../store";
 import { Store, getStore } from "../api/main";
 import { onMounted, ref, computed } from "vue";
 import { useRoute } from "vue-router";
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/vue";
 import SwitherCard from "../components/swither-card.vue";
+import {ShoppingCartIcon} from "@heroicons/vue/24/outline";
+import Dialog from '@/components/Dialog';
+import UserCard from "@/components/UserCard.vue";
+import {CardStorage} from "@/storages/card-storage.ts";
+import HorizontalCard from "@/components/horizontal-card.vue";
+
+
+const cardStorage = CardStorage.getInstance();
+
+
 const isOpen = ref(false);
 
 function setIsOpen(value: boolean) {

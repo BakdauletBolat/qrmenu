@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from menu import models
+from waiter.models import FoodItem
 
 
 class FoodImageSerializer(serializers.ModelSerializer):
@@ -14,7 +15,7 @@ class FoodSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Food
-        fields = ('name', 'description','price', 'discount_price', 'images')
+        fields = ('id','name', 'description','price', 'discount_price', 'images')
 
 class CategorySerializer(serializers.ModelSerializer):
 
@@ -33,3 +34,13 @@ class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Store
         fields = ('name', 'address', 'image', 'categories')
+
+
+class FoodItemSerializer(serializers.ModelSerializer):
+    food_id = serializers.IntegerField(write_only=True, required=True)
+    food = FoodSerializer(read_only=True)
+    class Meta:
+        model = FoodItem
+        fields = ('qty', 'food', 'food_id', 'price')
+
+

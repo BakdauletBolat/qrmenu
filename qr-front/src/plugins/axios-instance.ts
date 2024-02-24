@@ -1,6 +1,15 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'https://back.easymenu.kz/api',
+    baseURL: 'http://localhost:8000/api',
     timeout: 10000,
+  });
+
+
+  instance.interceptors.request.use(function (config) {
+    config.headers['Authorization'] = "Bearer "+localStorage.getItem('token');
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
   });

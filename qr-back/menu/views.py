@@ -3,14 +3,14 @@ from django.shortcuts import render
 from rest_framework import decorators, response
 from menu.models import Category, Food, Store
 from menu.serializers import StoreSerializer
-
+from waiter import models
 
 
 def render_main(request):
     return render(request, 'dist/index.html')
 
-def render_shop(request, slug: str):
 
+def render_shop(request, slug: str):
     store = Store.objects.get(slug=slug)
     foods = Food.objects.filter(category=store.categories.first())
     context = {
@@ -35,3 +35,4 @@ def render_api_store(request, slug: str):
     return response.Response(StoreSerializer(store, context={
         'request': request
     }).data)
+

@@ -17,9 +17,8 @@ class CategoryAdminCustomForm(forms.ModelForm):
         super(CategoryAdminCustomForm, self).__init__(*args, **kwargs)
         if not self.request.user.is_superuser:
             self.initial = {
-                'store': self.request.user.stores.first().id if self.request.user.stores.first() else None
+                'store': self.request.user.store.id if self.request.user.store else None
             }
-            self.fields['store'].queryset = self.request.user.stores.all()
 
        
     class Meta:
@@ -40,7 +39,7 @@ class CategoryAdmin(admin.ModelAdmin):
         queryset = super().get_queryset(request)
         if request.user.is_superuser:
             return queryset
-        return queryset.filter(store_id=request.user.stores.first().id)
+        return queryset.filter(store_id=request.user.store.id)
 
 class FoodImageInline(admin.TabularInline):
     model = models.FoodImage
@@ -61,9 +60,9 @@ class FoodCustomForm(forms.ModelForm):
         super(FoodCustomForm, self).__init__(*args, **kwargs)
         if not self.request.user.is_superuser:
             self.initial = {
-                'store': self.request.user.stores.first().id if self.request.user.stores.first() else None
+                'store': self.request.user.store.id if self.request.user.store else None
             }
-            self.fields['category'].queryset = models.Category.objects.filter(store_id__in=self.request.user.stores.values_list('id', flat=True))
+            self.fields['category'].queryset = models.Category.objects.filter(store_id=self.request.user.store_id)
        
     class Meta:
         model = models.Category
@@ -96,7 +95,7 @@ class FoodAdmin(admin.ModelAdmin):
         queryset = super().get_queryset(request)
         if request.user.is_superuser:
             return queryset
-        return queryset.filter(category__store_id=request.user.stores.first().id)
+        return queryset.filter(category__store_id=request.user.store_id)
 
 def generate_qr_code_base64(url):
     # Generate QR code
@@ -146,4 +145,4 @@ class StoreAdmin(admin.ModelAdmin):
         queryset = super().get_queryset(request)
         if request.user.is_superuser:
             return queryset
-        return queryset.filter(id=request.user.stores.first().id)
+        return queryset.filter(id=request.user.store_id)
