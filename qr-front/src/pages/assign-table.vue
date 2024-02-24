@@ -23,7 +23,7 @@ import { computed, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 const numberList = Array.from({ length: 100 }, (_, index) => index + 1);
-const table_number = ref(null);
+const table_number = ref<number | null>(null);
 const route = useRoute();
 const router = useRouter();
 
@@ -46,7 +46,7 @@ const numberList2 = computed(() => {
     return numberList;
   }
   else {
-    return numberList.filter(i => i.toString().startsWith(table_number.value.toString()));
+    return numberList.filter(i => i.toString().startsWith(table_number.value!.toString()));
   }
 })
 </script>

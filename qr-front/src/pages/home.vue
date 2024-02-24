@@ -51,10 +51,8 @@ import { QrcodeStream } from 'vue-qrcode-reader';
 import QRIcon from '../assets/qr-scan-svgrepo-com.svg';
 import { ChevronLeftIcon } from '@heroicons/vue/24/outline';
 import {useRouter} from "vue-router";
-import axios from 'axios';
 import { instance } from '@/plugins/axios-instance';
 
-  const result = ref('')
   const error = ref('');
   const loading = ref(true);
 
@@ -114,6 +112,7 @@ import { instance } from '@/plugins/axios-instance';
       }, 1000)
    }
    catch (e) {
+    // @ts-ignore
     if (e!.response != null) {
       error.value = 'Стол уже занят';
     }

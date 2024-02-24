@@ -19,7 +19,7 @@
                     v-for="(item, index) in orders">
                     <div class="flex lg:items-center flex-col lg:flex-row lg:gap-2">
                         <div>Столик {{ item.table }}</div>
-                        <div>( {{ item.food_items.map(item => item.food.name).toString() }} )</div>
+                        <div>( {{ item.food_items.map((item:any) => item.food.name).toString() }} )</div>
                     </div>
                     <div class="flex items-end gap-1 lg:items-center flex-col lg:flex-row  lg:gap-4">
                         <div class="font-bold">{{ item.total_cost }}₸</div>
@@ -41,7 +41,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { CheckBadgeIcon, ForwardIcon, QrCodeIcon } from '@heroicons/vue/24/outline';
 import Dialog from '@/components/Dialog';
 import TableDetail from '@/components/table-detail.vue';
-const orders = ref([]);
+const orders = ref<any[]>([]);
 
 const currentTable = ref(null);
 const route = useRoute();
