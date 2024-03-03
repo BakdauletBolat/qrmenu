@@ -4,6 +4,7 @@ import QR from './pages/home.vue';
 import Login from './pages/login.vue';
 import AssignTable from "./pages/assign-table.vue";
 import Orders from "./pages/orders.vue";
+import FoodDetail from '@/pages/detail-food.vue';
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
     name: 'login',
     path: '/login',
     component: Login,
+  },
+  {
+    name: 'food',
+    path: '/food/:id',
+    component: FoodDetail,
   },
   {
     path: '/qr',

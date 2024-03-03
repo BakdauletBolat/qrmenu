@@ -1,4 +1,5 @@
 <template>
+  
   <div
     class="w-full h-[50vh] flex justify-center items-center"
     v-if="isLoading"
@@ -28,7 +29,6 @@
       </path>
     </svg>
   </div>
-
   <div v-else class="w-full m-auto">
     <Dialog title="Поиск" v-model="isOpen" >
         <div class="container mx-auto flex gap-3"
@@ -142,6 +142,13 @@ import HorizontalCard from "@/components/horizontal-card.vue";
 
 const cardStorage = CardStorage.getInstance();
 
+
+
+window.addEventListener('popstate', (e) => {
+  e.preventDefault();
+  console.log('User clicked back button');
+  document.body.style.backgroundColor = 'white';
+});
 
 const isOpen = ref(false);
 
