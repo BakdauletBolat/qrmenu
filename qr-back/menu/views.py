@@ -39,7 +39,7 @@ def render_api_store(request, slug: str):
 
 @decorators.api_view(['GET'])
 def render_detail_food(request, id: int):
-    product = Product.objects.get(id=id)
+    product = Food.objects.get(id=id)
     return response.Response(FoodSerializer(product, context={
         'request': request
     }).data)
