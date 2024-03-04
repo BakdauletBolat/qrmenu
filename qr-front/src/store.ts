@@ -1,11 +1,23 @@
 import { reactive } from 'vue'
-import {Store} from './api/main';
+import {Food, Store} from './api/main';
 
 export const store = reactive<{
     store: Store | undefined,
-    setStore: Function
+    setStore: Function,
+    getProductById: Function
 }>({
     store: undefined,
+    getProductById(id: number): Food | null {
+        console.log(id);
+        this.store?.categories.forEach((category)=>{
+            category.foods.forEach(food=>{
+                if (food.id == id) {
+                    return food;
+                }
+            });
+        });
+        return null;
+    },
     setStore(store: Store) {
         this.store = store;
     }

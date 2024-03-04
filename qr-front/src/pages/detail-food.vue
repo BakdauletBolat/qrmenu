@@ -1,5 +1,5 @@
 <template>
-    <div :id="food.id" class="bg-white relative tr rounded hover:cursor-pointer" >
+    <div v-if="food" :id="food.id.toString()" class="bg-white relative tr rounded hover:cursor-pointer" >
       <div class="w-full h-[250px] rounded-lg overflow-hidden relative">
           <div class="w-full h-full transparent-gradient absolute"></div>
           <img :alt="food.name" class="w-full h-full object-cover"
@@ -34,5 +34,18 @@
     </div>
   </template>
   <script lang="ts" setup>
-  defineProps(['food']);
+import { useRoute } from 'vue-router';
+import { store } from "../store";
+import { onMounted, ref } from 'vue';
+import { Food } from '@/api/main';
+
+const route = useRoute();
+
+const food = ref<Food | null>(null);
+
+onMounted(()=>{
+  console.log( store.getProductById(parseInt(route.params.id.toString())) )
+ food.value = store.getProductById(parseInt(route.params.id.toString()));
+});
+
   </script>

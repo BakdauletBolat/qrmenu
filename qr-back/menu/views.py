@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import decorators, response
 from menu.models import Category, Food, Store
-from menu.serializers import StoreSerializer
+from menu.serializers import StoreSerializer, FoodSerializer
 from waiter import models
 
 
@@ -33,6 +33,14 @@ def render_foods_by_category(request, id: int):
 def render_api_store(request, slug: str):
     store = Store.objects.get(slug=slug)
     return response.Response(StoreSerializer(store, context={
+        'request': request
+    }).data)
+
+
+@decorators.api_view(['GET'])
+def render_detail_food(request, id: int):
+    product = Product.objects.get(id=id)
+    return response.Response(FoodSerializer(product, context={
         'request': request
     }).data)
 

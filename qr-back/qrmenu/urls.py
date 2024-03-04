@@ -7,6 +7,7 @@ from menu import views
 
 urlpatterns = [
     path("api/store/<str:slug>", views.render_api_store),
+    path("api/food/<int:id>", views.render_detail_food),
     path("admin/", admin.site.urls),
     path("api/", include("waiter.urls"))
 ]
