@@ -10,12 +10,7 @@
                 <div>{{ cardStorage.totalCost }} ₸</div>
             </div>
         </div>
-        <button :disabled="isLoadingQr" @click="getTableId" :class="{
-            'bg-slate-400 text-black': isLoadingQr
-        }" class="w-full bg-orange-400 text-white p-3 rounded-sm">
-            <div v-if="isLoadingQr">Загрузка</div>
-            <div v-else>Показать QR</div>
-        </button>
+
     </div>
     <div v-if="isQrLoaded" class="mt-3 mb-5">
         <div class="flex text-slate-500 items-center justify-center font-light w-full mb-3">

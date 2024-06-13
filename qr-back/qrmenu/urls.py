@@ -6,10 +6,12 @@ from menu import views
 
 
 urlpatterns = [
-    path("api/store/<str:slug>", views.render_api_store),
-    path("api/food/<int:id>", views.render_detail_food),
+    path("api/store/<str:slug>", views.get_store),
+    path('api/store/categories', views.get_categories),
+    path('api/store/foods/<int:id>', views.get_foods_by_category),
+    path("api/food/<int:id>", views.get_detail_food),
     path("admin/", admin.site.urls),
-    path("api/", include("waiter.urls"))
+    # path("api/", include("waiter.urls"))
 ]
 
 

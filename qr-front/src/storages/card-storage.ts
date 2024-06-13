@@ -45,6 +45,17 @@ class LocalCardStorage extends AbstractCardStorage {
         }
         this.save();
     }
+
+    checkInBasket(id: number) {
+        const exists = this.goods.value.filter(item=>item.id == id);
+        return exists.length != 0;
+    }
+
+    getFromBasket(id: number) {
+        const exists = this.goods.value.filter(item=>item.id == id);
+        return exists[0];
+    }
+
     increaseGood(id: number) {
         const exists = this.goods.value.filter(item=>item.id == id);
         if (exists.length) {

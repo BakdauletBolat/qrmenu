@@ -4,7 +4,8 @@ export interface Food {
     id: number;
     name: string;
     description: string;
-    price: string;
+    price: number;
+    category: Category;
     discount_price: string;
     images: Image[];
 }
@@ -26,7 +27,7 @@ export interface Store {
     name: string;
     address: string;
     image: string;
-    categories: Category[];
+    categories: Category[]
 }
 
 export const getStore = (slug: string) => {

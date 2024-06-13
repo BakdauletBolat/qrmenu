@@ -1,5 +1,5 @@
 <template>
-  <div @click="addToCard" class="text-nowrap bg-orange-400 hover:border-orange-400 flex items-center mt-2 justify-center gap-3 hover:border-white border border-transparent rounded-md text-center p-3 text-white text-sm">
+  <div @click="addToCard" class="text-nowrap bg-slate-700 flex items-center mt-2 justify-center gap-3 hover:border-white border border-transparent rounded-md text-center p-3 text-white text-sm">
     <shopping-cart-icon class="w-6 h-6" :class="{
       'h-5 w-5': big
     }"></shopping-cart-icon>

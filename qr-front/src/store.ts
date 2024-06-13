@@ -8,7 +8,6 @@ export const store = reactive<{
 }>({
     store: undefined,
     getProductById(id: number): Food | null {
-        console.log(id);
         this.store?.categories.forEach((category)=>{
             category.foods.forEach(food=>{
                 if (food.id == id) {

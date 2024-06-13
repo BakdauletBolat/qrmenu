@@ -35,8 +35,8 @@ class Food(models.Model):
     name = models.CharField(max_length=255, verbose_name='Названия')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория', related_name='foods')
     description = models.TextField(verbose_name='Описание')
-    price = models.DecimalField(decimal_places=2, max_digits=8 , verbose_name='Цена')
-    discount_price = models.DecimalField(null=True,blank=True, decimal_places=2, max_digits=8 , verbose_name='Цена со скидкой')
+    price = models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Цена')
+    discount_price = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=8 , verbose_name='Цена со скидкой')
 
     class Meta:
         verbose_name = 'Блюдо'

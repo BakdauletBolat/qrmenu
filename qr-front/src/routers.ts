@@ -1,42 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DetailResto from './pages/detail-resto.vue';
-import QR from './pages/home.vue';
-import Login from './pages/login.vue';
-import AssignTable from "./pages/assign-table.vue";
-import Orders from "./pages/orders.vue";
 import FoodDetail from '@/pages/detail-food.vue';
+import Foods from "@/pages/foods.vue";
 
 const routes = [
   {
-    name: 'home',
-    path: '/', component: Orders, meta: {
-      isRequiredAuth: true
-    }
-  },
-  {
-    name: 'login',
-    path: '/login',
-    component: Login,
+    name: 'foods',
+    path: '/foods/:categoryId',
+    component: Foods
   },
   {
     name: 'food',
     path: '/food/:id',
     component: FoodDetail,
   },
-  {
-    path: '/qr',
-    name: 'qr',
-    component: QR,
-    meta: {
-      isRequiredAuth: true
-    }
-  },
-  {
-    path: '/assign-table/:id',
-    component: AssignTable,
-    name: 'assign'
-  },
-  { path: '/resto/:slug', component: DetailResto },
+  { path: '/restaurant/:slug', component: DetailResto },
 ]
 
 const router = createRouter({
@@ -48,7 +26,7 @@ const router = createRouter({
 
 router.beforeEach((to, _) => {
   // instead of having to check every route record with
-  if (to.meta.isRequiredAuth && !localStorage.getItem('token')) {
+  if (to.meta.isRequiredAuth) {
     return {
       path: '/login',
       query: { redirect: to.fullPath },
