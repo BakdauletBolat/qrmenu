@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=qrmaster
       - POSTGRES_PASSWORD=baguvix123FFF
     ports:
-      - "5433:5433"
+      - "5433:5432"
   web:
     container_name: web
     build:
