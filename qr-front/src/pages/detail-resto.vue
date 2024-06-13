@@ -57,7 +57,7 @@
       />
       <div class="top-0 absolute w-full h-[200px] gradient-black"></div>
     </header>
-     <div class="grid grid-cols-3 gap-3 px-4 mt-4">
+     <div class="grid grid-cols-1 gap-3 px-4 mt-4">
        <CategoryItem @click="navigateTo(category.id)" :item="category" v-for="category in store.store?.categories"></CategoryItem>
     </div>
   </div>

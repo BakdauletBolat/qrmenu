@@ -8,10 +8,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="bg-white cursor-pointer rounded overflow-hidden relative" >
-    <ImageComponent class="h-[200px] w-full" :url="item.image" :alt="item.title"></ImageComponent>
-    <div class="w-full absolute top-0 left-0 h-[200px] bg-black-gradient"></div>
-    <div class="p-4 absolute bottom-0 w-full text-white text-center font-medium shantell-sans-regular">{{item.title}}</div>
+  <div class="bg-white cursor-pointer rounded-xl overflow-hidden relative" >
+    <ImageComponent class="h-[300px] w-full" :url="item.image" :alt="item.title"></ImageComponent>
+    <div class="w-full absolute top-0 left-0 h-[300px] bg-black-gradient"></div>
+    <div class="p-6 absolute bottom-0 w-full text-xl text-white text-center font-medium">{{item.title}}</div>
   </div>
 </template>
 
