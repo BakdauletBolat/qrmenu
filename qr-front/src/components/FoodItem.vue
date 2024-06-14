@@ -4,6 +4,7 @@ import ImageComponent from "@/components/image-component.vue";
 import {formattedPrice} from "../utils.ts";
 import {CardStorage} from "@/storages/card-storage.ts";
 import {MinusIcon, PlusIcon} from "@heroicons/vue/16/solid";
+import {ShoppingCartIcon} from "@heroicons/vue/24/outline";
 const {item} = defineProps<{
   item: Food
 }>();
@@ -36,7 +37,7 @@ function addToCard() {
                 <p class="text-[#66666E] mt-2 text-sm">{{ item.description }}</p>
             </div>
             <div v-if="cardStorage.checkInBasket(item.id)">
-              <section class="flex items-center justify-between">
+              <section class="flex items-center mt-4 justify-between">
                   <div class="w-full flex items-center gap-4 text-center py-2 ">
                     <div @click="cardStorage.decreaseGood(item.id)" class="bg-white cursor-pointer p-1 rounded-lg"><MinusIcon  class="w-5 h-5"></MinusIcon></div>
                     <div>{{cardStorage.getFromBasket(item.id).quantity}}</div>
@@ -49,7 +50,9 @@ function addToCard() {
             </div>
             <section v-else @click="addToCard" class="mt-4 w-full">
                 <div class="cursor-pointer w-full text-white bg-slate-700 text-center flex justify-center items-center py-2 font-medium rounded">
-                  <div class="">{{formattedPrice(item.price)}} ₸</div>
+                  <div class="flex justify-center items-center gap-2">
+<!--                    <ShoppingCartIcon class="h-6 w-6"></ShoppingCartIcon>-->
+                    <span>{{formattedPrice(item.price)}} ₸</span></div>
                 </div>
             </section>
         </div>

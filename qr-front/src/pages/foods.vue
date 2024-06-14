@@ -29,7 +29,11 @@ const loadFoods = () => {
 }
 
 onMounted(()=>{
+  window.scrollTo({
+    top:0
+  })
   loadFoods();
+
 });
 
 </script>

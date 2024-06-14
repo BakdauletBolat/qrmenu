@@ -3,8 +3,8 @@
     <AppHeaderComponent title="О блюде"></AppHeaderComponent>
     <div v-if="food" :id="food.id.toString()" class="bg-[#F4F4F6] min-h-[100vh] relative rounded" >
       <div class="w-full pt-4 max-w-[800px] px-4 mx-auto">
-        <div class="flex gap-4">
-          <div class="h-[250px] w-[300px]">
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="h-[250px] w-full md:w-[300px]">
           <ImageComponent class="w-full rounded h-full object-cover" :alt="food.name" :url="food.images.length > 0 ? food.images[0].image : undefined"></ImageComponent>
         </div>
         <div>
@@ -24,7 +24,7 @@
           </p>
         </div>
           <div v-if="cardStorage.checkInBasket(food.id)">
-              <section class="flex items-center gap-3 justify-between">
+              <section class="flex mt-4 items-center gap-3 justify-between">
                   <div class="w-full flex items-center gap-4 text-center py-2 ">
                     <div @click="cardStorage.decreaseGood(food.id)" class="cursor-pointer p-1 rounded-lg"><MinusIcon  class="w-5 h-5"></MinusIcon></div>
                     <div>{{cardStorage.getFromBasket(food.id).quantity}}</div>
@@ -37,7 +37,10 @@
             </div>
             <section v-else @click="addToCard" class="mt-4 w-full">
                 <div class="cursor-pointer w-full text-white bg-slate-700 text-center flex justify-center items-center py-2 font-medium rounded">
-                  <div class="">{{formattedPrice(food.price)}} ₸</div>
+                  <div class="flex justify-center items-center gap-2">
+                    <ShoppingCartIcon class="h-6 w-6"></ShoppingCartIcon>
+                    <span class="flex gap-1"><span class="md:block hidden">Добавить в корзину</span> {{formattedPrice(food.price)}} ₸</span>
+                  </div>
                 </div>
             </section>
         </div>
@@ -66,6 +69,7 @@ import {formattedPrice} from "@/utils.ts";
 import {MinusIcon, PlusIcon} from "@heroicons/vue/16/solid";
 import {CardStorage} from "@/storages/card-storage.ts";
 import LoadingComponent from "@/components/loading-component.vue";
+import {ShoppingCartIcon} from "@heroicons/vue/24/outline";
 
 const route = useRoute();
 
@@ -98,7 +102,10 @@ function loadFood() {
 }
 
 onMounted(()=>{
-  loadFood()
+  loadFood();
+  window.scrollTo({
+    top: 0
+  })
 });
 
   </script>
