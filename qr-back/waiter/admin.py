@@ -1,10 +1,9 @@
 from typing import Any
-
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
-
 from waiter import models
+
 
 class UserAdmin(admin.ModelAdmin):
     def get_fields(self, request, obj):
@@ -19,6 +18,13 @@ class UserAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return queryset
         return queryset.filter(store_id=request.user.store_id)
+
+    def save_model(self, request, obj, form, change):
+        if form.is_valid():
+            if 'password' in form.cleaned_data:
+                if not obj.check_password(form.cleaned_data['password']):
+                    obj.set_password(form.cleaned_data['password'])
+            obj.save()
 
 
 admin.site.register(models.User, UserAdmin)
