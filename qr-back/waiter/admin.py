@@ -3,28 +3,34 @@ from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
 from waiter import models
+from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
+from django.utils.translation import gettext_lazy as _
 
 
-class UserAdmin(admin.ModelAdmin):
-    def get_fields(self, request, obj):
-        if request.user.is_superuser:
-            fields = ('role',('username', 'password'),'store', 'email', 'first_name', 'last_name', 'groups', 'last_login', 'is_superuser', 'is_staff')
-        else:
-            fields = ('role','username', 'password', 'email', 'first_name', 'last_name')
-        return fields
+class UserAdmin(DefaultUserAdmin):
+    fieldsets = (
+        (None, {"fields": ("username", "password", "role")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),
+        (
+            _("Permissions"),
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                ),
+            },
+        ),
+        (_("Important dates"), {"fields": ("last_login", "date_joined")}),
+    )
 
     def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
         queryset = super().get_queryset(request)
         if request.user.is_superuser:
             return queryset
         return queryset.filter(store_id=request.user.store_id)
-
-    def save_model(self, request, obj, form, change):
-        if form.is_valid():
-            if 'password' in form.cleaned_data:
-                if not obj.check_password(form.cleaned_data['password']):
-                    obj.set_password(form.cleaned_data['password'])
-            obj.save()
 
 
 admin.site.register(models.User, UserAdmin)
@@ -41,7 +47,7 @@ class FoodItemTabularAdmin(admin.TabularInline):
         return False
 
 
-@admin.register(models.WaiterTable)
+# @admin.register(models.WaiterTable)
 class WaiterTable(admin.ModelAdmin):
     inlines = [FoodItemTabularAdmin]
 
@@ -50,5 +56,3 @@ class WaiterTable(admin.ModelAdmin):
         if request.user.is_superuser:
             return queryset
         return queryset.filter(waiter__store_id=request.user.store_id)
-
-

@@ -14,7 +14,7 @@ const routes = [
     path: '/food/:id',
     component: FoodDetail,
   },
-  { path: '/restaurant/:slug', component: DetailResto },
+  { path: '/resto/:slug', component: DetailResto },
 ]
 
 const router = createRouter({
