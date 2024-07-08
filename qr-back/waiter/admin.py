@@ -15,6 +15,7 @@ class UserAdmin(DefaultUserAdmin):
             _("Permissions"),
             {
                 "fields": (
+                    "store",
                     "is_active",
                     "is_staff",
                     "is_superuser",
