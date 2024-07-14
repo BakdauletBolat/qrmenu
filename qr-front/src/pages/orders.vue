@@ -8,7 +8,7 @@
                 <h1 class="text-2xl font-bold ">Заказы</h1>
                 <RouterLink :to="{
                     name: 'qr'
-                }" class="flex gap-2 items-center cursor-pointer hover:bg-slate-700 p-2 rounded-sm hover:text-white">
+                }" class="flex gap-2 items-center cursor-pointer hover:primary-background p-2 rounded-sm hover:text-white">
                     <div class="text-sm">Сканировать для клиента</div>
                     <QrCodeIcon class="w-7 h-7"></QrCodeIcon>
                 </RouterLink>

@@ -48,7 +48,7 @@ function addToCard() {
                 </section>
             </div>
             <section v-else @click="addToCard" class="mt-4 w-full">
-                <div class="cursor-pointer w-full text-white bg-slate-700 text-center flex justify-center items-center py-2 font-medium rounded-2xl">
+                <div class="cursor-pointer w-full text-white primary-background text-center flex justify-center items-center py-2 font-medium rounded-2xl">
                   <div>{{formattedPrice(item.price)}} ₸</div>
                 </div>
             </section>

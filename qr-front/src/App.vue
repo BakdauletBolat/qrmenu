@@ -6,16 +6,20 @@
   <Dialog v-model="cardStorage.isActive.value" title="Корзина">
       <UserCard></UserCard>
     </Dialog>
-  <div @click="cardStorage.isActive.value = true" class="fixed cursor-pointer rounded-bl-xl flex gap-4 items-center rounded-tl-xl bottom-[100px] right-0 p-6 bg-slate-700 z-10" v-if="cardStorage.goods.value.length > 0">
-    <ShoppingCartIcon class="h-8 w-8 text-white"></ShoppingCartIcon>
-    <div class="text-white text-xl">Корзина {{cardStorage.goods.value.length}}</div>
+  <div class="px-4 fixed bottom-4 w-full">
+    <div @click="cardStorage.isActive.value = true"
+       class="primary-background cursor-pointer flex gap-4 items-center rounded-lg w-full p-4 z-10" v-if="cardStorage.goods.value.length > 0">
+    <div>
+      <p class="text-sm text-slate-100"><strong>{{cardStorage.goods.value.length}}</strong> блюдо на <strong>{{cardStorage.totalCost}}₸</strong></p>
+      <p class="text-white text-lg font-medium">Перейти в корзину</p>
+    </div>
+  </div>
   </div>
 </div>
 </template>
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import {CardStorage} from "@/storages/card-storage.ts";
-import {ShoppingCartIcon} from "@heroicons/vue/24/outline";
 import Dialog from "@/components/Dialog/index.ts";
 import UserCard from "@/components/UserCard.vue";
 

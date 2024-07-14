@@ -8,8 +8,8 @@ const router = useRouter();
 </script>
 
 <template>
-<header class="px-6 fixed z-50 bg-white w-full">
-  <div @click="router.back()" class="flex gap-4 cursor-pointer items-center p-4">
+<header class="p-4 fixed z-50 bg-white w-full">
+  <div @click="router.back()" class="flex gap-4 cursor-pointer items-center">
     <ChevronLeftIcon class="h-6 w-6"></ChevronLeftIcon>
     <div class="text-xl">{{title}}</div>
   </div>

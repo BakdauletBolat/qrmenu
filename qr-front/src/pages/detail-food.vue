@@ -1,7 +1,7 @@
 <template>
     <LoadingComponent :is-loading="isLoading"></LoadingComponent>
     <AppHeaderComponent title="О блюде"></AppHeaderComponent>
-    <div v-if="food" :id="food.id.toString()" class="bg-[#F4F4F6] min-h-[100vh] relative rounded" >
+    <div v-if="food" :id="food.id.toString()" class="bg-white min-h-[100vh] relative rounded" >
       <div class="w-full pt-4 max-w-[800px] px-4 mx-auto">
         <div class="flex flex-col md:flex-row gap-4">
           <div class="h-[250px] w-full md:w-[300px]">
@@ -36,7 +36,7 @@
                 </section>
             </div>
             <section v-else @click="addToCard" class="mt-4 w-full">
-                <div class="cursor-pointer w-full text-white bg-slate-700 text-center flex justify-center items-center py-2 font-medium rounded">
+                <div class="cursor-pointer w-full text-white primary-background text-center flex justify-center items-center py-2 font-medium rounded">
                   <div class="flex justify-center items-center gap-2">
                     <ShoppingCartIcon class="h-6 w-6"></ShoppingCartIcon>
                     <span class="flex gap-1"><span class="md:block hidden">Добавить в корзину</span> {{formattedPrice(food.price)}} ₸</span>

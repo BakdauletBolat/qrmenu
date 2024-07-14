@@ -22,14 +22,14 @@ function addToCard() {
 </script>
 
 <template>
-  <article class="bg-white p-4 gap-4 rounded flex">
+  <article class="bg-white p-4 gap-4 rounded-lg flex">
         <RouterLink :to="{
           name: 'food',
           params: {
             id: item.id
           }
         }">
-             <ImageComponent class="h-[180px] w-[180px] rounded-xl" :url="item.images.length > 0 ? item.images[0].image : undefined" :alt="item.name"></ImageComponent>
+             <ImageComponent class="h-[150px] w-[150px] rounded-xl" :url="item.images.length > 0 ? item.images[0].image : undefined" :alt="item.name"></ImageComponent>
         </RouterLink>
         <div class="flex flex-col justify-between w-full">
             <div>
@@ -43,13 +43,13 @@ function addToCard() {
                     <div>{{cardStorage.getFromBasket(item.id).quantity}}</div>
                     <div @click="cardStorage.increaseGood(item.id)" class="bg-white cursor-pointer p-1 rounded-lg"><PlusIcon class="w-5 h-5"></PlusIcon></div>
                   </div>
-                  <div class="font-medium  white-space-pre text-nowrap">
+                  <div class="font-medium white-space-pre text-nowrap">
                     {{formattedPrice(item.price * cardStorage.getFromBasket(item.id).quantity)}} ₸
                   </div>
                 </section>
             </div>
             <section v-else @click="addToCard" class="mt-4 w-full">
-                <div class="cursor-pointer w-full text-white bg-slate-700 text-center flex justify-center items-center py-2 font-medium rounded">
+                <div class="cursor-pointer w-full text-white primary-background text-center flex justify-center items-center py-2 font-medium rounded">
                   <div class="flex justify-center items-center gap-2">
 <!--                    <ShoppingCartIcon class="h-6 w-6"></ShoppingCartIcon>-->
                     <span>{{formattedPrice(item.price)}} ₸</span></div>

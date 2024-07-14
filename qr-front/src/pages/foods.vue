@@ -43,7 +43,7 @@ onMounted(()=>{
   <div class="flex flex-col justify-center items-center min-h-[100vh]" v-if="foods.length < 1">
     <NotFoundIcon width="100" height="100"></NotFoundIcon>
     <h2 class="text-2xl mt-4">Извините, это блюдо временно отсутствует.</h2>
-    <div class="bg-slate-700 px-10 cursor-pointer py-3 rounded-xl text-white mt-4" @click="router.back()">
+    <div class="primary-background px-10 cursor-pointer py-3 rounded-xl text-white mt-4" @click="router.back()">
       Назад
     </div>
   </div>

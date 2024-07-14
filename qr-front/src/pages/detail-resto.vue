@@ -24,7 +24,7 @@
     </header>
      <div class="grid grid-cols-1 gap-3 px-4 mt-4"
      :class="{
-       'grid-cols-3': true
+       'lg:grid-cols-3': store.store.params?.adaptive
      }">
        <CategoryItem @click="navigateTo(category.id)" :item="category" v-for="category in store.store?.categories"></CategoryItem>
     </div>
@@ -32,7 +32,7 @@
   <div v-else class="min-h-[100vh] flex justify-center items-center flex-col">
     <NotFoundIcon width="100" height="100"></NotFoundIcon>
     <h2 class="text-2xl mt-4">Вы кажется ошиблись адресом, попробуйте другой адрес</h2>
-    <div class="bg-slate-700 px-10 cursor-pointer py-3 rounded-xl text-white mt-4" @click="router.back()">
+    <div class="primary-background px-10 cursor-pointer py-3 rounded-xl text-white mt-4" @click="router.back()">
       Назад
     </div>
   </div>
@@ -85,12 +85,23 @@ const route = useRoute();
 const router = useRouter();
 const isLoading = ref(false);
 
+function setParams(store: Store) {
+  const root = document.documentElement;
+      console.log(store.params.mainColor)
+  if (store.params.mainColor != undefined) {
+
+      root.style.setProperty('--main-color', store.params.mainColor);
+  }
+
+}
+
 const loadStore = async (slug: string) => {
   isLoading.value = true;
   try {
     const storeData: Store = (await getStore(slug)).data;
     store.setStore(storeData);
     document.title = store.store?.name ?? "Easy menu";
+    setParams(store.store);
   } finally {
     isLoading.value = false;
   }

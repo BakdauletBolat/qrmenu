@@ -27,7 +27,11 @@ export interface Store {
     name: string;
     address: string;
     image: string;
-    categories: Category[]
+    categories: Category[],
+    params: {
+        adaptive: boolean,
+        mainColor: string
+    }
 }
 
 export const getStore = (slug: string) => {
