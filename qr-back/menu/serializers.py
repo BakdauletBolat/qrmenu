@@ -32,7 +32,7 @@ class StoreSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)
     class Meta:
         model = models.Store
-        fields = ('name', 'address', 'image', 'categories')
+        fields = ('name', 'address', 'image', 'categories', 'params')
 
 
 class FoodItemSerializer(serializers.ModelSerializer):

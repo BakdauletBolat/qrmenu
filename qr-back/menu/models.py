@@ -6,6 +6,7 @@ class Store(models.Model):
     address = models.TextField(null=True)
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to='stores/', null=True, blank=True, verbose_name='Фотка')
+    params = models.JSONField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Магазин'
