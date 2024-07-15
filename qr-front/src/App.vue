@@ -8,7 +8,7 @@
     </Dialog>
   <div class="px-4 fixed bottom-4 w-full">
     <div @click="cardStorage.isActive.value = true"
-       class="primary-background cursor-pointer flex gap-4 items-center rounded-lg w-full p-4 z-10" v-if="cardStorage.goods.value.length > 0">
+       class="primary-background max-w-[500px] mx-auto cursor-pointer flex gap-4 items-center rounded-lg w-full p-4 z-10" v-if="cardStorage.goods.value.length > 0">
     <div>
       <p class="text-sm text-slate-100"><strong>{{cardStorage.goods.value.length}}</strong> блюдо на <strong>{{cardStorage.totalCost}}₸</strong></p>
       <p class="text-white text-lg font-medium">Перейти в корзину</p>

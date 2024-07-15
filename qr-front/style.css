@@ -1,0 +1,285 @@
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 10px;
+  font-weight: normal;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li {
+  margin-left: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: #FFA500;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-section .cta-button {
+  display: inline-block;
+  background: #FF6347;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: #f5f5f5;
+  padding: 40px 0;
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.benefit {
+  flex: 1 1 200px;
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  padding: 40px 0;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1 1 200px;
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section */
+.features-section {
+  background: #f5f5f5;
+  padding: 40px 0;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.feature {
+  flex: 1 1 200px;
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 40px 0;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  flex: 1 1 200px;
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Pricing Section */
+.pricing-section {
+  background: #f5f5f5;
+  padding: 40px 0;
+}
+
+.pricing-tiers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tier {
+  flex: 1 1 200px;
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tier .cta-button {
+  display: inline-block;
+  background: #FF6347;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 40px 0;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  margin: 20px 0;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 40px 0;
+}
+
+.contact-section p {
+  text-align: center;
+}
+
+.contact-section ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.contact-section ul li {
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  display: inline-block;
+  background: #FF6347;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.footer-nav a {
+  margin: 0 10px;
+}
+
+.social-media {
+  margin-top: 20px;
+}
+
+.social-media a {
+  margin: 0 10px;
+}
+
+.social-media img {
+  width: 24px;
+  height: 24px;
+}

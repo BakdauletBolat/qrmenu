@@ -2,8 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DetailResto from './pages/detail-resto.vue';
 import FoodDetail from '@/pages/detail-food.vue';
 import Foods from "@/pages/foods.vue";
+import Landing from "@/pages/Landing.vue";
 
 const routes = [
+  {
+    name: 'landing',
+    path: '/',
+    component: Landing
+  },
   {
     name: 'foods',
     path: '/foods/:categoryId',
