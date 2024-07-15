@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import StartUpImage from '@/assets/st.png';
+import logoEasymenu from '@/assets/logo.svg';
+import { CheckIcon } from '@heroicons/vue/20/solid'
+
+const includedFeatures = [
+  'Дизаин из готовых шаблонов',
+  'Поддержка',
+  'Функция корзины'
+]
+
 const expanded = ref(false);
 
 </script>
@@ -11,7 +20,7 @@ const expanded = ref(false);
             <div class="relative flex items-center justify-between">
                 <div class="flex-shrink-0">
                     <a href="#" title="" class="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
-                        <img class="w-auto h-8" src="https://cdn.rareblocks.xyz/collection/clarity/images/logo.svg" alt="" />
+                        <img class="w-auto h-8" :src="logoEasymenu" alt="" />
                     </a>
                 </div>
 
@@ -43,10 +52,10 @@ const expanded = ref(false);
                     <a
                         href="#"
                         title=""
-                        class="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                        class="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-[#45484C] border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                         role="button"
                     >
-                        Try for free
+                      Попробовать бесплатно
                     </a>
                 </div>
             </div>
@@ -54,11 +63,11 @@ const expanded = ref(false);
             <nav v-if="expanded">
                 <div class="px-1 py-8">
                     <div class="grid gap-y-7">
-                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Features </a>
+                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Преимущества </a>
 
-                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Pricing </a>
+                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Как это работает </a>
 
-                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Support </a>
+                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Цены </a>
 
                         <a
                             href="#"
@@ -66,7 +75,7 @@ const expanded = ref(false);
                             class="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                             role="button"
                         >
-                            Try for free
+                            Попробовать бесплатно
                         </a>
                     </div>
                 </div>
@@ -165,443 +174,46 @@ const expanded = ref(false);
         </div>
     </div>
 </section>
-<section class="py-10 bg-white sm:py-16 lg:py-24">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">Pricing &amp; Plans</h2>
-            <p class="mt-4 text-lg leading-relaxed text-gray-600">Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+<div class="bg-white py-2 pb-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+        <div class="p-8 sm:p-10 lg:flex-auto">
+          <h3 class="text-2xl font-bold tracking-tight text-gray-900">Месячная подписка</h3>
+          <p class="mt-6 text-base leading-7 text-gray-600">Получите доступ ко всем функциям нашей платформы всего за 5990 тенге в месяц. Попробуйте наш сервис совершенно бесплатно в течение первых 7 дней!</p>
+          <div class="mt-10 flex items-center gap-x-4">
+            <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">Включено в подписку:</h4>
+            <div class="h-px flex-auto bg-gray-100" />
+          </div>
+          <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
+            <li v-for="feature in includedFeatures" :key="feature" class="flex gap-x-3">
+              <CheckIcon class="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
+              {{ feature }}
+            </li>
+          </ul>
         </div>
-
-        <!-- lg+ -->
-        <div class="hidden mt-16 lg:block">
-            <table class="w-full">
-                <thead>
-                    <tr>
-                        <th class="py-8 pr-4"></th>
-
-                        <th class="px-4 py-8 text-center">
-                            <span class="text-base font-medium text-blue-600"> Free </span>
-                            <p class="mt-6 text-6xl font-bold">$0</p>
-                            <p class="mt-2 text-base font-normal text-gray-500">Per month</p>
-                        </th>
-
-                        <th class="px-4 py-8 text-center">
-                            <span class="text-base font-medium text-blue-600"> Team </span>
-                            <p class="mt-6 text-6xl font-bold">$99</p>
-                            <p class="mt-2 text-base font-normal text-gray-500">Per month</p>
-                        </th>
-
-                        <th class="px-4 py-8 text-center bg-gray-900 rounded-t-xl">
-                            <span class="px-4 py-2 text-base font-medium text-white bg-blue-600 rounded-full"> Popular </span>
-                            <p class="mt-6 text-6xl font-bold text-white">$150</p>
-                            <p class="mt-2 text-base font-normal text-gray-200">Per month</p>
-                        </th>
-
-                        <th class="px-4 py-8 text-center">
-                            <span class="text-base font-medium text-blue-600"> Enterprise </span>
-                            <p class="mt-6 text-6xl font-bold">$490</p>
-                            <p class="mt-2 text-base font-normal text-gray-500">Per month</p>
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">Website number</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">01</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">10</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">50</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">Unlimited</td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">Server storage</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">100 GB</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">500 GB</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">1 TB</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">Unlimited</td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">Database</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">15</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">Unlimited</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">Unlimited</td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">Unmetered Bandwidth</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">SSD Disk</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">VCPUS Fontworld</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">WordPress install</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-4 pr-4 font-medium border-b border-gray-200">Server speed</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">-</td>
-
-                        <td class="px-4 py-4 text-center text-white bg-gray-900 border-b border-white/20">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-
-                        <td class="px-4 py-4 text-center border-b border-gray-200">
-                            <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="py-6 pr-4"></td>
-
-                        <td class="px-4 py-6 text-center">
-                            <a href="#" title="" class="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700">
-                                Get Started
-                                <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </td>
-
-                        <td class="px-4 py-6 text-center">
-                            <a href="#" title="" class="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700">
-                                Get Started
-                                <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </td>
-
-                        <td class="px-4 py-6 text-center text-white bg-yellow-500 rounded-b-xl">
-                            <a href="#" title="" class="inline-flex items-center font-semibold text-white">
-                                Get Started
-                                <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </td>
-
-                        <td class="px-4 py-6 text-center">
-                            <a href="#" title="" class="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700">
-                                Get Started
-                                <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+          <div class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+            <div class="mx-auto max-w-xs px-8">
+              <p class="text-base font-semibold text-gray-600">Месячная подписка</p>
+              <p class="mt-6 flex items-baseline justify-center gap-x-2">
+                <span class="text-5xl font-bold tracking-tight text-gray-900">5990₸</span>
+                <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">KZT</span>
+              </p>
+              <a href="#" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Получить доступ</a>
+              <p class="mt-6 text-xs leading-5 text-gray-600">Invoices and receipts available for easy company reimbursement</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <!-- xs to lg -->
-    <div class="block mt-12 border-t border-b border-gray-200 divide-y divide-gray-200 lg:hidden">
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">
-                <span class="text-sm font-medium text-blue-600"> Free </span>
-                <p class="mt-2 text-xl font-bold">$0</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-            </div>
-
-            <div class="px-2 py-2">
-                <span class="text-sm font-medium text-blue-600"> Team </span>
-                <p class="mt-2 text-xl font-bold">$99</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-            </div>
-
-            <div class="px-2 py-2">
-                <span class="text-sm font-medium text-blue-600"> Popular </span>
-                <p class="mt-2 text-xl font-bold">$150</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-            </div>
-
-            <div class="px-2 py-2">
-                <span class="text-sm font-medium text-blue-600"> Enterprise </span>
-                <p class="mt-2 text-xl font-bold">$490</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-            </div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">Website number</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">01</div>
-
-            <div class="px-2 py-2">10</div>
-
-            <div class="px-2 py-2">100</div>
-
-            <div class="px-2 py-2">Unlimited</div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">Server storage</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">100 GB</div>
-
-            <div class="px-2 py-2">500 GB</div>
-
-            <div class="px-2 py-2">1 TB</div>
-
-            <div class="px-2 py-2">Unlimited</div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">Database</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">-</div>
-
-            <div class="px-2 py-2">15</div>
-
-            <div class="px-2 py-2">Unlimited</div>
-
-            <div class="px-2 py-2">Unlimited</div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">Unmetered bandwidth</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">-</div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">SSD Disk</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">-</div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">VCPUS Fontworld</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">-</div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-
-        <div class="px-2 py-4 sm:px-4">
-            <p class="font-semibold">WordPress install</p>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-2 py-2">-</div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-
-            <div class="px-2 py-2">
-                <svg class="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 text-center divide-x divide-gray-200">
-            <div class="px-1 py-2 sm:px-4">
-                <span class="text-sm font-medium text-blue-600"> Free </span>
-                <p class="mt-2 text-xl font-bold">$0</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-                <a href="#" title="" class="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" role="button"> Get Started </a>
-            </div>
-
-            <div class="px-1 py-2 sm:px-4">
-                <span class="text-sm font-medium text-blue-600"> Team </span>
-                <p class="mt-2 text-xl font-bold">$99</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-                <a href="#" title="" class="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" role="button"> Get Started </a>
-            </div>
-
-            <div class="px-1 py-2 sm:px-4">
-                <span class="text-sm font-medium text-blue-600"> Popular </span>
-                <p class="mt-2 text-xl font-bold">$150</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-                <a href="#" title="" class="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" role="button"> Get Started </a>
-            </div>
-
-            <div class="px-1 pt-2 pb-4 sm:px-4">
-                <span class="text-sm font-medium text-blue-600"> Enterprise </span>
-                <p class="mt-2 text-xl font-bold">$490</p>
-                <span class="mt-1 text-sm font-normal text-gray-500"> Per month </span>
-                <a href="#" title="" class="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" role="button"> Get Started </a>
-            </div>
-        </div>
-    </div>
-</section>
+  </div>
 <section class="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
     <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div class="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div class="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-                <img class="w-auto h-9" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" />
+                <img class="w-auto h-9" :src="logoEasymenu" alt="" />
 
-                <p class="text-base leading-relaxed text-gray-600 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                <p class="text-base leading-relaxed text-gray-600 mt-7">Мы специализируемся на создании инновационных инструментов для упрощения управления меню и улучшения взаимодействия с клиентами. Наша миссия — помочь заведениям оптимизировать процесс представления блюд, сделать его более современным и удобным.</p>
 
                 <ul class="flex items-center space-x-3 mt-9">
                     <li>
@@ -649,29 +261,29 @@ const expanded = ref(false);
             </div>
 
             <div>
-                <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Company</p>
+                <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Команда</p>
 
                 <ul class="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> About </a>
+                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> О нас </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </a>
+                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Преимущества </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Works </a>
+                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Как это работает </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Career </a>
+                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Цены </a>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Help</p>
+                <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Помощь</p>
 
                 <ul class="mt-6 space-y-4">
                     <li>
@@ -682,33 +294,22 @@ const expanded = ref(false);
                         <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Delivery Details </a>
                     </li>
 
-                    <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Terms & Conditions </a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Terms & Conditions </a>-->
+<!--                    </li>-->
 
-                    <li>
-                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Privacy Policy </a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="#" title="" class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Privacy Policy </a>-->
+<!--                    </li>-->
                 </ul>
             </div>
 
-            <div class="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
-                <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Subscribe to newsletter</p>
 
-                <form action="#" method="POST" class="mt-6">
-                    <div>
-                        <label for="email" class="sr-only">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter your email" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
-                    </div>
-
-                    <button type="submit" class="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700">Subscribe</button>
-                </form>
-            </div>
         </div>
 
         <hr class="mt-16 mb-10 border-gray-200" />
 
-        <p class="text-sm text-center text-gray-600">© Copyright 2021, All Rights Reserved by Postcraft</p>
+        <p class="text-sm text-center text-gray-600">© Copyright 2024, All Rights Reserved by Easymenu.kz</p>
     </div>
 </section>
 
