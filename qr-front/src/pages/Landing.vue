@@ -10,16 +10,18 @@ const includedFeatures = [
   'Функция корзины'
 ]
 
+const linkWhatsapp = 'https://api.whatsapp.com/send?phone=77059943864&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%0A%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D0%B8%D0%BC%20%D0%B2%D0%B0%D1%81%20%D0%B7%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%20%D0%BA%20%D0%BD%D0%B0%D1%88%D0%B5%D0%BC%D1%83%20%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%83%20%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D0%BD%D1%8E%20%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20QR-%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2.%20%D0%9C%D1%8B%20%D1%80%D0%B0%D0%B4%D1%8B%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B0%D1%81!%0A%0A%D0%9D%D0%B0%D1%88%20%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B7%D0%B2%D0%BE%D0%BB%D1%8F%D0%B5%D1%82%20%D0%BB%D0%B5%D0%B3%D0%BA%D0%BE%20%D0%B8%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%BE%D0%B5%20%D0%B2%D0%B0%D1%88%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B%20%D1%81%D0%BC%D0%BE%D0%B3%D1%83%D1%82%20%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D1%8C%2C%20%D1%81%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D1%83%D1%8F%20QR-%D0%BA%D0%BE%D0%B4.%20%D0%AD%D1%82%D0%BE%20%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%BE%D0%B5%20%D1%83%D0%BF%D1%80%D0%BE%D1%89%D0%B0%D0%B5%D1%82%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%20%D0%B8%20%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B0%D0%B5%D1%82%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%20%D1%81%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%D0%BC%D0%B8.'
+
 const expanded = ref(false);
 
 </script>
 
 <template><div class="bg-gray-50">
-    <header class="relative z-10 py-4 md:py-6">
+    <header id="header" class="relative z-10 py-4 md:py-6">
         <div class="container px-4 mx-auto sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between">
                 <div class="flex-shrink-0">
-                    <a href="#" title="" class="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
+                    <a href="#header" title="" class="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
                         <img class="w-auto h-8" :src="logoEasymenu" alt="" />
                     </a>
                 </div>
@@ -43,19 +45,19 @@ const expanded = ref(false);
                 <div class="hidden md:flex md:items-center md:justify-center md:space-x-10 md:absolute md:inset-y-0 md:left-1/2 md:-translate-x-1/2 lg:space-x-16">
                     <a href="#" title="" class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Преимущества </a>
 
-                    <a href="#" title="" class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Как это работает</a>
+                    <a href="#how-to-works" title="" class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Как это работает</a>
 
-                    <a href="#" title="" class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Цены </a>
+                    <a href="#prices" title="" class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Цены </a>
                 </div>
 
                 <div class="hidden md:flex">
                     <a
-                        href="#"
+                        :href="linkWhatsapp"
                         title=""
                         class="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-[#45484C] border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                         role="button"
                     >
-                      Попробовать бесплатно
+                      Напишите нам
                     </a>
                 </div>
             </div>
@@ -65,17 +67,17 @@ const expanded = ref(false);
                     <div class="grid gap-y-7">
                         <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Преимущества </a>
 
-                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Как это работает </a>
+                        <a href="#how-to-works" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Как это работает </a>
 
-                        <a href="#" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Цены </a>
+                        <a href="#prices" title="" class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Цены </a>
 
                         <a
-                            href="#"
+                            :href="linkWhatsapp"
                             title=""
                             class="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                             role="button"
                         >
-                            Попробовать бесплатно
+                            Напишите нам
                         </a>
                     </div>
                 </div>
@@ -94,39 +96,9 @@ const expanded = ref(false);
                     <h1 class="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">Цифровое меню за секунду</h1>
                     <p class="mt-2 text-lg text-gray-600 sm:mt-6 font-inter">Создайте привлекательное цифровое меню для вашего заведения всего за несколько секунд с нашей инновационной платформой</p>
 
-                    <a href="#" title="" class="inline-flex px-8 py-4 mt-8 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded sm:mt-10 font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
-                        Попробовать бесплатно
+                    <a :href="linkWhatsapp" title="" class="inline-flex px-8 py-4 mt-8 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded sm:mt-10 font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
+                        Напишите нам
                     </a>
-
-                    <div class="mt-8 sm:mt-16">
-                        <div class="flex items-center justify-center lg:justify-start">
-                            <svg class="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg class="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg class="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg class="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg class="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                        </div>
-                    </div>
                 </div>
                 <div class="xl:col-span-1">
                     <img class="object-contain mx-auto h-[500px]" :src="StartUpImage" alt="" />
@@ -134,14 +106,14 @@ const expanded = ref(false);
             </div>
         </div>
     </section>
-  <section class="py-10 bg-white sm:py-16 lg:py-24">
+  <section id="how-to-works" class="py-10 bg-white sm:py-16 lg:py-24">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Как это работает?</h2>
             <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
         </div>
 
-        <div class="relative mt-12 lg:mt-20">
+        <div  class="relative mt-12 lg:mt-20">
             <div class="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
                 <img class="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/steps/2/curved-dotted-line.svg" alt="" />
             </div>
@@ -174,7 +146,7 @@ const expanded = ref(false);
         </div>
     </div>
 </section>
-<div class="bg-white py-2 pb-10">
+<div id="prices" class="bg-white py-2 pb-10">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
         <div class="p-8 sm:p-10 lg:flex-auto">

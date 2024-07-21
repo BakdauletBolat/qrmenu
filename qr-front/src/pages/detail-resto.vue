@@ -3,10 +3,16 @@
   <div v-if="store.store" class="w-full m-auto  min-h-[100vh] bg-[#F4F4F6]">
     <header class="w-full h-[200px]">
       <div class="z-10 relative text-white m-auto container flex-col justify-between h-full !py-5 flex">
-        <div class="flex justify-end">
-          <button @click="cardStorage.isActive.value = true" class="p-3 hover:bg-white rounded-xl hover:text-black">
+        <div class="flex justify-between items-center">
+          <img class="h-[40px]" alt="Лого" :src="LogoImage" />
+          <div class="flex items-center">
+            <button @click="cardStorage.isActive.value = true" class="p-2 hover:bg-white rounded-xl hover:text-black">
             <ShoppingCartIcon class="w-6 h-6"></ShoppingCartIcon>
           </button>
+          <button class="p-2 hover:bg-white rounded-xl hover:text-black">
+            <InformationCircleIcon class="w-6 h-6"></InformationCircleIcon>
+          </button>
+          </div>
         </div>
         <div>
           <h2 class="text-xl font-bold">{{ store.store?.name }}</h2>
@@ -22,11 +28,26 @@
       />
       <div class="top-0 absolute w-full h-[200px] gradient-black"></div>
     </header>
-     <div class="grid grid-cols-1 gap-3 px-4 mt-4"
+    <div v-if="store.store.params.style == 'tabbed'">
+      <Tabs :items="items" class="bg-white" />
+      <div class="px-4 pb-[300px]">
+      <div :id="category.id.toString()"  v-for="category in store.store?.categories">
+        <h3 class="text-xl py-4">{{category.title}}</h3>
+        <div class="flex gap-3 flex-col" >
+          <div v-for="food in category.foods">
+          <FoodItem :item="food"></FoodItem>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div v-else>
+      <div class="grid grid-cols-1 gap-3 px-4 mt-4"
      :class="{
        'lg:grid-cols-3': store.store.params?.adaptive
      }">
        <CategoryItem @click="navigateTo(category.id)" :item="category" v-for="category in store.store?.categories"></CategoryItem>
+    </div>
     </div>
   </div>
   <div v-else class="min-h-[100vh] flex justify-center items-center flex-col">
@@ -39,16 +60,28 @@
 </template>
 
 <script setup lang="ts">
+import LogoImage from '../assets/logo-white.svg';
 import { store } from "../store";
 import { Store, getStore } from "../api/main";
-import { onMounted, ref } from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import {ShoppingCartIcon} from "@heroicons/vue/24/outline";
+import {ShoppingCartIcon, InformationCircleIcon} from "@heroicons/vue/24/outline";
 import {CardStorage} from "@/storages/card-storage.ts";
 import CategoryItem from "@/components/CategoryItem.vue";
 import LoadingComponent from "@/components/loading-component.vue";
 import NotFoundIcon from "@/assets/NotFoundIcon.vue";
+import Tabs from "@/components/tabbed-food-component.vue";
+import FoodItem from "@/components/FoodItem.vue";
 
+
+const items = computed(()=>{
+  return store.store?.categories.map(category=>{
+    return {
+      title: category.title,
+      id: category.id.toString()
+    }
+  });
+})
 
 const cardStorage = CardStorage.getInstance();
 
@@ -87,9 +120,7 @@ const isLoading = ref(false);
 
 function setParams(store: Store) {
   const root = document.documentElement;
-      console.log(store.params.mainColor)
   if (store.params.mainColor != undefined) {
-
       root.style.setProperty('--main-color', store.params.mainColor);
   }
 

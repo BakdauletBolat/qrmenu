@@ -30,6 +30,7 @@ export interface Store {
     categories: Category[],
     params: {
         adaptive: boolean,
+        style: string,
         mainColor: string
     }
 }
