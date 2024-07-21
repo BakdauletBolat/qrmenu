@@ -23,9 +23,10 @@ class FoodSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    foods = FoodSerializer(many=True)
     class Meta:
         model = models.Category
-        fields = ('id', 'image', 'order', 'title', 'parent')
+        fields = ('id', 'image', 'order', 'title', 'parent', 'foods')
 
 
 class StoreSerializer(serializers.ModelSerializer):
