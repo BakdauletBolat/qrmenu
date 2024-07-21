@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
 <div class="overflow-hidden">
-  <img v-if="url" class="w-full h-full object-contain" :alt="alt" :src="url"/>
+  <img v-if="url" class="w-full h-full object-cover" :alt="alt" :src="url"/>
   <img :src="NoImage" v-else :alt="alt">
 </div>
 </template>
