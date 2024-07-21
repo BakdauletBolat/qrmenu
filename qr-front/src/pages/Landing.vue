@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import StartUpImage from '@/assets/st.png';
+import StartUpImage from '@/assets/main-screen.png';
 import logoEasymenu from '@/assets/logo.svg';
 import { CheckIcon } from '@heroicons/vue/20/solid'
 
@@ -110,7 +110,7 @@ const expanded = ref(false);
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Как это работает?</h2>
-            <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
+<!--            <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>-->
         </div>
 
         <div  class="relative mt-12 lg:mt-20">
@@ -147,18 +147,18 @@ const expanded = ref(false);
     </div>
 </section>
 <div id="prices" class="bg-white py-2 pb-10">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-        <div class="p-8 sm:p-10 lg:flex-auto">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mt-16 max-w-2xl rounded-lg sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+        <div class="p-6 sm:p-10 lg:flex-auto">
           <h3 class="text-2xl font-bold tracking-tight text-gray-900">Месячная подписка</h3>
           <p class="mt-6 text-base leading-7 text-gray-600">Получите доступ ко всем функциям нашей платформы всего за 5990 тенге в месяц. Попробуйте наш сервис совершенно бесплатно в течение первых 7 дней!</p>
           <div class="mt-10 flex items-center gap-x-4">
-            <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">Включено в подписку:</h4>
+            <h4 class="flex-none text-sm font-semibold leading-6 text-gray-900">Включено в подписку:</h4>
             <div class="h-px flex-auto bg-gray-100" />
           </div>
           <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
             <li v-for="feature in includedFeatures" :key="feature" class="flex gap-x-3">
-              <CheckIcon class="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
+              <CheckIcon class="h-6 w-5 flex-none text-gray-900" aria-hidden="true" />
               {{ feature }}
             </li>
           </ul>
@@ -171,8 +171,8 @@ const expanded = ref(false);
                 <span class="text-5xl font-bold tracking-tight text-gray-900">5990₸</span>
                 <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">KZT</span>
               </p>
-              <a href="#" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Получить доступ</a>
-              <p class="mt-6 text-xs leading-5 text-gray-600">Invoices and receipts available for easy company reimbursement</p>
+              <a href="#" class="mt-10 block w-full rounded-md bg-gray-900 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm">Получить доступ</a>
+              <p class="mt-6 text-xs leading-5 text-gray-600">*Цена только для меню</p>
             </div>
           </div>
         </div>
