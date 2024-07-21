@@ -4,7 +4,7 @@
     <header class="w-full h-[200px]">
       <div class="z-10 relative text-white m-auto container flex-col justify-between h-full !py-5 flex">
         <div class="flex justify-between items-center">
-          <img class="h-[40px]" alt="Лого" :src="LogoImage" />
+          <img class="h-[30px]" alt="Лого" :src="LogoImage" />
           <div class="flex items-center">
             <button @click="cardStorage.isActive.value = true" class="p-2 hover:bg-white rounded-xl hover:text-black">
             <ShoppingCartIcon class="w-6 h-6"></ShoppingCartIcon>
@@ -29,15 +29,17 @@
       <div class="top-0 absolute w-full h-[200px] gradient-black"></div>
     </header>
     <div v-if="store.store.params.style == 'tabbed'">
-      <Tabs :items="items" class="bg-white" />
+      <div class="container !px-0 mx-auto">
+        <Tabs :items="items" class="bg-slate-100" />
       <div class="px-4 pb-[300px]">
       <div :id="category.id.toString()"  v-for="category in store.store?.categories">
-        <h3 class="text-xl py-4">{{category.title}}</h3>
-        <div class="flex gap-3 flex-col" >
+        <h3 class="text-2xl font-bold py-3">{{category.title}}</h3>
+        <div class="grid  md:grid-cols-2 lg:grid-cols-3 gap-3">
           <div v-for="food in category.foods">
           <FoodItem :item="food"></FoodItem>
         </div>
         </div>
+      </div>
       </div>
       </div>
     </div>

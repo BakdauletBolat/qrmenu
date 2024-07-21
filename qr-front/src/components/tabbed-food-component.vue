@@ -74,10 +74,9 @@ const scrollTabListToActiveTab = (index: number) => {
     <TabList
       id="tabList"
       class="
-        py-2
+        py-3
         px-4
         sticky
-        shadow
         flex
         w-full
         overflow-x-scroll
@@ -91,7 +90,7 @@ const scrollTabListToActiveTab = (index: number) => {
           :class="{
             'primary-background text-white': selected
           }"
-          class="relative p-3 rounded-lg font-bold  group"
+          class="relative p-3 rounded-lg uppercase group"
         >
           <span class="text-nowrap">
             {{ item.title }}
