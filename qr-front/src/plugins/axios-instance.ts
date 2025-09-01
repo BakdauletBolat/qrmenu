@@ -1,18 +1,21 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'https://back.easymenu.kz/api',
-    timeout: 10000,
-  });
+  baseURL: "https://backeasymenu.bolatb.kz/api",
+  timeout: 10000,
+});
 
-
-  instance.interceptors.request.use(function (config) {
-    if (localStorage.getItem('token') != null) {
-      config.headers['Authorization'] = "Bearer "+localStorage.getItem('token');
+instance.interceptors.request.use(
+  function (config) {
+    if (localStorage.getItem("token") != null) {
+      config.headers["Authorization"] =
+        "Bearer " + localStorage.getItem("token");
     }
 
     return config;
-  }, function (error) {
+  },
+  function (error) {
     // Do something with request error
     return Promise.reject(error);
-  });
+  },
+);
